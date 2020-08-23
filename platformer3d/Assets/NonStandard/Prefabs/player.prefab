@@ -478,9 +478,9 @@ RectTransform:
   m_Father: {fileID: 22468678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 809, y: -146}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -87, y: -146}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &22234238
@@ -587,7 +587,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0.001953125
+            m_FloatArgument: 1
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -1031,6 +1031,7 @@ GameObject:
   - component: {fileID: 11472320}
   - component: {fileID: 11448940}
   - component: {fileID: 11436236}
+  - component: {fileID: 1989836208}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1125,6 +1126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 471020}
   clipAgainstWalls: 1
+  maxVerticalAngle: 90
+  minVerticalAngle: -90
   horizontalRotateInput: 0
   verticalRotateInput: 0
   zoomInput: 0
@@ -1158,6 +1161,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874d8290f01d143498f6db8fce19d8dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1989836208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9e77edcbb9a2f469ab1b448a8ce7d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectingSlowsRenderingInEditMode:
+  - {fileID: 164456}
+  - {fileID: 186354}
+  - {fileID: 192234}
 --- !u!1 &170286
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1902,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1901,6 +1920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9946da85399cde7459691bf4813d6c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   head: {fileID: 471020}
   move:
     speed: 5
@@ -1917,8 +1937,10 @@ MonoBehaviour:
     moveForwardMovement: 0
     turnClockwise: 0
     moveDirection: {x: 0, y: 0, z: 0}
+    groundNormal: {x: 0, y: 0, z: 0}
     oppositionDirection: {x: 0, y: 0, z: 0}
     lastVelocity: {x: 0, y: 0, z: 0}
+    lastOppositionDirection: {x: 0, y: 0, z: 0}
     orientationTransform: {fileID: 488962}
   jump:
     minJumpHeight: 0.125
@@ -1926,6 +1948,30 @@ MonoBehaviour:
     fullJumpPressDuration: 0.25
     maxJumps: 1
     PressJump: 0
+    impulseActive: 0
+    jumpsSoFar: 0
+  callbacks:
+    moveDirectionChanged:
+      m_PersistentCalls:
+        m_Calls: []
+    stand:
+      m_PersistentCalls:
+        m_Calls: []
+    jumped:
+      m_PersistentCalls:
+        m_Calls: []
+    fall:
+      m_PersistentCalls:
+        m_Calls: []
+    collisionStart:
+      m_PersistentCalls:
+        m_Calls: []
+    collisionStopped:
+      m_PersistentCalls:
+        m_Calls: []
+    arrived:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &188396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,7 +2472,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 2044694}
   body: {fileID: 11477564}
+  lookSpeed: 360
   lookingAt: {x: 0, y: 0, z: 0}
+  followMouseEvenWhileMoving: 0
 --- !u!1 &194820
 GameObject:
   m_ObjectHideFlags: 0
