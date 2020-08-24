@@ -686,6 +686,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11451598, guid: 8d542b9fba148c245b1da48b5fd1ffb2, type: 3}
+      propertyPath: joystickOutput.onHorizontalChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4367180678471351111}
+    - target: {fileID: 11451598, guid: 8d542b9fba148c245b1da48b5fd1ffb2, type: 3}
+      propertyPath: joystickOutput.onHorizontalChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_FaceX
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451598, guid: 8d542b9fba148c245b1da48b5fd1ffb2, type: 3}
+      propertyPath: joystickOutput.onVerticalChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4367180678471351111}
+    - target: {fileID: 11451598, guid: 8d542b9fba148c245b1da48b5fd1ffb2, type: 3}
+      propertyPath: joystickOutput.onVerticalChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_FaceY
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d542b9fba148c245b1da48b5fd1ffb2, type: 3}
 --- !u!20 &1989836207 stripped
@@ -783,3 +799,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a2124167cd85a04c9b847056c7116a2, type: 3}
+--- !u!114 &4367180678471351111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4367180678641727377, guid: 9a2124167cd85a04c9b847056c7116a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4367180678471351110}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52d6e49ab3fec9a4bb35e8f3a25a5182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
